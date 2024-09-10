@@ -22,7 +22,7 @@ class UserManager(BaseUserManager):
 
         return user
 
-    def create_superuser(self,email,password):
+    def create_superuser(self, email, password):
         """Create and return a new superuser."""
         user = self.create_user(email, password)
         user.is_staff = True
@@ -32,7 +32,7 @@ class UserManager(BaseUserManager):
         return user
 
 
-class User(AbstractBaseUser,PermissionsMixin):
+class User(AbstractBaseUser, PermissionsMixin):
     """User in the system."""
     email = models.EmailField(max_length=255, unique=True)
     name = models.CharField(max_length=255)
